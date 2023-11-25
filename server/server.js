@@ -10,7 +10,13 @@ import 'dotenv/config';
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(
+    {
+        origin:["https://login-signup-peach.vercel.app/"],
+        methods:["GET","POST","PUT","DELETE"],
+        credentials:true
+    }
+));
 app.use(morgan("tiny"));
 app.disable("x-powered-by");
 app.get("/",(req,res)=>{
