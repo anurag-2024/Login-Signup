@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(
     {
-        origin:["https://login-signup-peach.vercel.app/"],
+        origin:["https://login-signup-42cm.vercel.app/"],
         methods:["GET","POST","PUT","DELETE"],
         credentials:true
     }
