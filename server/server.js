@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   
 app.use(cors(
     {
-        origin:["https://login-signup-42cm.vercel.app/"],
+        origin:["https://login-signup-42cm.vercel.app"],
         methods:["GET","POST","PUT","DELETE"],
         credentials:true
     }
