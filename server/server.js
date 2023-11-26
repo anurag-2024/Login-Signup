@@ -20,6 +20,7 @@ app.use(cors(
 ));
 app.use(morgan("tiny"));
 app.disable("x-powered-by");
+
 app.get("/",(req,res)=>{
     res.send("Hello World");
 })
