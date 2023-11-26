@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
   
 app.use(cors(
     {
-        origin:["https://login-signup-42cm-12a6t52lk-anurag-patels-projects.vercel.app"],
+        origin:["https://login-signup-42cm.vercel.app"],
         methods:["GET","POST","PUT","DELETE"],
         credentials:true
     }

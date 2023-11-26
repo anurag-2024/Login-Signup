@@ -11,7 +11,6 @@ import { verifyPassword } from '../helper/helper';
 import { getUsername } from "../helper/helper";
 const Password = () => {
   const {username}=useAuthStore(state=>state.auth);
-  console.log(username);
  const data= useFetch(`user/${username}`);
 // const isLoading=data[0].isLoading;
 const apiData=data[0].apidata;  
@@ -37,7 +36,6 @@ const apiData=data[0].apidata;
           navigate("/profile");
         }
       } catch (error) {
-        console.log(error);
         toast.error("An error occurred while verifying the password.",{id:loadingToast});
       }
     },

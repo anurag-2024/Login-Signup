@@ -13,7 +13,6 @@ const Recovery = () => {
     async function getData(){
       const loadingToast = toast.loading('Generating OTP...');
       const response= await generateOTP(username);
-      console.log("Generate OTP",response);
       if(response?.status===201){
         toast.success("OTP sent to your email address",{id:loadingToast});
       }

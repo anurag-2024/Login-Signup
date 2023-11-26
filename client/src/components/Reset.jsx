@@ -20,11 +20,9 @@ const Password = () => {
     validateOnChange: false,
     onSubmit: async values => {
       const response= await resetPassword({username,password:values.password});
-      console.log("Update Password",response);
       const loadingToast = toast.loading('Updating Password...');
       try{
         if(response?.status===200){
-          console.log("hello brother");
           toast.success("Password updated successfully",{id:loadingToast});
           navigate("/password");
         }

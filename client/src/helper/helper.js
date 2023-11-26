@@ -6,16 +6,13 @@ axios.defaults.baseURL =import.meta.env.VITE_APP_SERVER_DOMAIN;
 /** get user token function */
 export async function getUsername(){
     const token= await localStorage.getItem("token");
-    console.log(token);
     if(!token) return Promise.reject("Token not found");
     let decode=await jwtDecode(token);
-    console.log(decode);
     return decode;
 }
 /** authenticate function */
 export async function authenticate(username){
     try{
-        console.log("Complete URL:", axios.defaults.baseURL + "/api/authenticate");
         return await axios.post("/api/authenticate",{username});
     }
     catch(err){
@@ -38,7 +35,6 @@ export async function getUser({username}){
 export async function registerUser(credentials){
     try{
         const {data:{msg},status}= await axios.post("/api/register",credentials);
-        console.log("Register User",msg);
         let {username,email}=credentials;
         if(status===201){
             await axios.post("/api/registerMail",{username,email});
@@ -56,7 +52,6 @@ export async function verifyPassword({username,password}){
     try{
        if(username){
         const {data}=await axios.post("/api/login",{username,password});
-        console.log("Verify Password",data);
         return Promise.resolve(data);
        }
     }
@@ -81,7 +76,6 @@ export async function updateUser(response){
 export async function generateOTP(username){
     try{
         const {data:{code},status}= await axios.get("/api/generateOTP",{params:{username}});
-        console.log(code);
         if(status===201){
            const data= await getUser({username});
            let text=`Your Password Recovery code is ${code}`;

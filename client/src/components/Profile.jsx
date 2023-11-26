@@ -13,8 +13,6 @@ const Profile = () => {
  const {username}=useAuthStore(state=>state.auth);
  const data= useFetch(`user/${username}`);
  const apiData=data[0].apidata; 
- console.log(apiData);
- console.log("Username",username)
   const [file, setfile] = useState();
   const navigate = useNavigate()
   const formik = useFormik({
@@ -34,7 +32,6 @@ const Profile = () => {
       const loadingToast = toast.loading('Updating...');
       try{
        const response=await updateUser(values);
-       console.log("refresh dta"+values);
         if(response.error){
           toast.error(response.error,{id:loadingToast});
         }
@@ -49,7 +46,6 @@ const Profile = () => {
   });
   const onUpload = async (e) => {
     const base64 = await convertToBase64(e.target.files[0]);
-    // console.log(base64);
     setfile(base64);
   } 
   return (
