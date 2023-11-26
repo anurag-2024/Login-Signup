@@ -4,7 +4,7 @@ import cors from "cors";
 import connect from "./database/conn.js";
 import morgan from "morgan";
 import router from "./router/routes.js";
-const port=8080;
+const port=process.env.PORT||8080;
 const app = express();
 import 'dotenv/config';
 
